@@ -1,15 +1,25 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Romanesco, Poppins } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/layout/NavBar";
+import Footer from "@/components/layout/Footer";
+const inter = Inter({
+  subsets: ['latin'],           // load only Latin characters
+  weight: ['400', '500', '700'], // choose the weights you need
+  variable: '--font-inter',     // CSS variable for Tailwind
+  display: 'swap'
+})
+const roman = Romanesco({
+  subsets: ['latin'],           // load only Latin characters
+  weight: ['400'], // choose the weights you need
+  variable: '--font-roman',     // CSS variable for Tailwind
+  display: 'swap'
+})
+const poppins = Poppins({
+  subsets: ['latin'],           // load only Latin characters
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',     // CSS variable for Tailwind
+  display: 'swap'
+})
 
 export const metadata = {
   title: "Create Next App",
@@ -19,8 +29,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${poppins.className} min-h-screen flex flex-col bg-[#1c1917] `}>
+        <Navbar />
+        <main className="flex flex-1">
+          {children}
+        </main>
       </body>
     </html>
   );
