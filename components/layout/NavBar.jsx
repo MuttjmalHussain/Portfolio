@@ -25,7 +25,7 @@ export default function Navbar() {
         
         {/* Logo */}
         <Link href="/" className="relative mt-4 w-24 h-24 rounded-full ">
-         <Image src="/logo.png" fill className="rounded-full h-full object-cover"/>
+         <Image src="/logo.png" alt="logo" fill className="rounded-full h-full object-cover"/>
         </Link> 
 
         {/* Desktop Navigation */}

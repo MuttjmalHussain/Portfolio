@@ -1,7 +1,7 @@
 import { Inter, Romanesco, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/NavBar";
-import Footer from "@/components/layout/Footer";
+import { Toaster } from "react-hot-toast";
 const inter = Inter({
   subsets: ['latin'],           // load only Latin characters
   weight: ['400', '500', '700'], // choose the weights you need
@@ -33,6 +33,16 @@ export default function RootLayout({ children }) {
         <Navbar />
         <main className="flex flex-1">
           {children}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              style: {
+                background: "#111",
+                color: "#fff",
+                borderRadius: "12px",
+              },
+            }}
+          />
         </main>
       </body>
     </html>

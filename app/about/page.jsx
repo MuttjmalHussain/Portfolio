@@ -12,7 +12,7 @@ const AboutMe = () => {
         <section className='grid grid-cols-1 md:grid-cols-2 gap-8'>
           <div className='relative rounded-xl overflow-hidden w-full max-w-sm mx-auto shadow-xl shadow-green-600'>
             <Image
-              className='object-cover w-full h-112 object-[center_50%]'
+              className='object-cover w-full h-90 sm:h-112 sm:object-[center_50%] object-[center_35%]'
               src={"/my-image.jpeg"}
               alt='my image'
               width={1000}
@@ -27,8 +27,8 @@ const AboutMe = () => {
             <p className="text-[13px] text-[#d2d1d1] ">
               I'm a passionate full stack developer with a strong foundation in both frontend and backend technologies. With a degree in Software Engineering and hands-on experience in developing scalable web applications, I specialize in building robust digital solutions that solve real-world problems. I love turning ideas into reality through clean, efficient code and intuitive user experiences.
             </p>
-            <hr className='text-gray-500 my-4' />
-            <section className='grid grid-cols-2 text-white text-xs gap-4'>
+            <hr className='text-gray-500 my-4 ' />
+            <section className='grid grid-cols-1 sm:grid-cols-2 text-white text-xs gap-4'>
               <div>
                 <p>Name:
                   <span className='text-gray-400'> Muttjmal Hussain</span></p>
@@ -46,7 +46,7 @@ const AboutMe = () => {
               >
                 Download CV
               </a>
-              <hr className='text-gray-300 w-20 my-auto' />
+              <hr className='text-gray-300 w-10 sm:w-20 my-auto' />
               <div className='flex gap-3 items-center'>
                 <a
                   href="https://web.facebook.com/fasi.janda.37/"

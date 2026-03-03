@@ -9,7 +9,7 @@ export default function page() {
       <div className='grid grid-cols-1 md:grid-cols-2 bg-'>
         <div>
           <div className='w-full max-w-3xs rounded-full overflow-hidden mx-auto'>
-            <Image src={'/myImage.jpg'} alt='my image' width={1000} height={1000} />
+            <Image src={'/myimage.jpg'} alt='my image' width={1000} height={1000} />
 
           </div>
         </div>
