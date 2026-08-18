@@ -1,63 +1,101 @@
 "use client"
 import Hero from "@/components/layout/Hero";
-import { ArrowUpRightFromSquare } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 
 const Projects = () => {
   const handleClick = (link) => {
     window.open(link, '_blank');
   }
+
   const projects = [
+    {
+      title: "Inventory management system",
+      description: "A GUI-based inventory and sales management system for a mobile shop, built using Java Swing. Includes secure admin login and modules for tracking products, customers, suppliers, and sales.",
+      imageUrl: "/javaswing.png",
+      url: 'https://github.com/MuttjmalHussain/Inventory-management-system',
+      techStack: ["Java Swing", "JDBC", "MySQL"],
+    },
     {
       title: "QuickHire",
       description: "Showcase platform for photographers with image optimization",
-      imageUrl: "/movie.png",
-      url: 'https://github.com/MuttjmalHussain/QuickHIre',
-      techStack: "MERN Stack"
+      imageUrl: "/quick.png",
+      url: 'https://github.com/MuttjmalHussain/QuickHire',
+      techStack: ["MongoDB", "Express", "React.js", "Node.js"],
     },
-
     {
       title: "Movies Website",
       description: "A modern, responsive portfolio website built with React and Tailwind CSS",
       imageUrl: "/movie.png",
       url: 'https://muttjmalhussain.github.io/MovieWebsite/',
-      techStack: "React.js"
-    },
-    {
-      title: "React Portfolio Website",
-      description: "A modern, responsive portfolio website built with React and Tailwind CSS",
-      imageUrl: "/java.png",
-      url: 'https://muttjmalhussain.github.io/MovieWebsite/',
-      techStack: "Java Swing"
-    },
-
+      techStack: ["React.js", "Tailwind CSS"],
+    }
   ];
 
   return (
     <section id="projects" className="py-16 max-w-[1560px] mx-auto bg-[#1c1917]">
       <div className="container mx-auto px-6">
         <Hero title={'My Projects'} />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center items-stretch gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className=" rounded-lg overflow-hidden hover:shadow-lg transition-shadow mb-2"
+              onClick={() => handleClick(project.url)}
+              className="group relative w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)]
+         rounded-xl overflow-hidden bg-neutral-900 border border-neutral-800
+         cursor-default flex flex-col
+         transition-all duration-300 ease-out
+         hover:-translate-y-1 hover:scale-[1.02]
+         hover:border-emerald-500/60
+         hover:shadow-[0_0_25px_-5px_rgba(16,185,129,0.4)]"
             >
-              <div className="relative group">
-                <button className="bg-black/50 p-3 rounded-lg  cursor-pointer absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white hidden group-hover:flex gap-2" onClick={() => handleClick(project.url)}>
-                  <ArrowUpRightFromSquare color="white " className="inline my-auto" size={17} strokeWidth={3} />
-                  <span>Link</span>
-                </button>
-                <Image width={1000} height={1000} src={project.imageUrl} alt={project.title} />
+              {/* Image */}
+              <div className="relative overflow-hidden h-56">
+                <Image
+                  fill
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+
+                {/* Dark overlay + Code button on hover */}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                  <span
+                    className="opacity-0 group-hover:opacity-100 
+         scale-95 group-hover:scale-100
+         translate-y-2 group-hover:translate-y-0
+         transition-all duration-300 ease-out
+         flex items-center gap-2
+         bg-white/5 group-hover:bg-white/15 hover:bg-white/25
+         backdrop-blur-md
+         border border-white/10 group-hover:border-white/40 hover:border-white/60
+         text-white text-sm font-medium px-5 py-2.5 rounded-full
+         cursor-pointer"
+                  >
+                    <FaGithub size={20} className="text-white" />
+                    Code
+                  </span>
+                </div>
               </div>
 
-              <h3 className="text-xl font-bold text-white my-2">{project.title}</h3>
-              <p className="text-gray-200 text-xs mb-4">{project.description}</p>
-              <p className="text-white text-sm mb-2">Tech Stack: <span className="px-2 py-1 bg-orange-600 rounded-full">{project.techStack}</span>  </p>
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-1 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                <p className="text-gray-400 text-sm mb-4 leading-relaxed">{project.description}</p>
+
+                <div className="flex flex-wrap gap-2 mt-auto pt-2">
+                  {project.techStack.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-3 py-1 rounded-full border border-emerald-600/50 text-emerald-400 bg-emerald-600/10"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-
           ))}
-
         </div>
       </div>
     </section>
