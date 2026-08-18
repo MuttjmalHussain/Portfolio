@@ -21,14 +21,14 @@ const Projects = () => {
       description: "Showcase platform for photographers with image optimization",
       imageUrl: "/quick.png",
       url: 'https://github.com/MuttjmalHussain/QuickHire',
-      techStack: ["MongoDB", "Express", "React.js", "Node.js"],
+      techStack: ["MongoDB", "Express", "React", "Node"],
     },
     {
       title: "Movies Website",
       description: "A modern, responsive portfolio website built with React and Tailwind CSS",
       imageUrl: "/movie.png",
       url: 'https://muttjmalhussain.github.io/MovieWebsite/',
-      techStack: ["React.js", "Tailwind CSS"],
+      techStack: ["React", "Tailwind CSS"],
     }
   ];
 
